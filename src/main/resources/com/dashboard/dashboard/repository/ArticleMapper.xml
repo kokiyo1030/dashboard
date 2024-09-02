@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dashboard.dashboard.repository.ArticleMapper">
+    <resultMap id="articleDto" type="article">
+        <result property="articleNo" column="article_no"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="recCount" column="rec_count"/>
+        <result property="notRecCount" column="not_rec_count"/>
+    </resultMap>
+    <insert id="save" useGeneratedKeys="true" keyProperty="articleNo">
+        insert into articles (title, content)
+        values (#{title}, #{content})
+    </insert>
+
+    <select id="findById" resultMap="articleDto">
+        select * from articles where article_no = #{articleNo}
+    </select>
+
+    <select id="findAll" resultMap="articleDto">
+        select * from articles
+    </select>
+
+    <update id="update">
+        update articles
+        set title=#{updateDto.title},
+            content=#{updateDto.content}
+        where article_no = #{articleNo}
+    </update>
+
+    <delete id="delete">
+        delete from articles where article_no = #{articleNo}
+    </delete>
+</mapper>
