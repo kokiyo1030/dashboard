@@ -28,6 +28,9 @@ public class ArticleController {
     public String articles(@ModelAttribute("articlesSearch") ArticleSearchCond cond, Model model) {
         List<Article> allArticles = articleService.findAllArticles(cond);
         model.addAttribute("articles", allArticles);
+        if (cond.getTitle() == "") {
+            return "redirect:/";
+        }
         return "articles";
     }
 

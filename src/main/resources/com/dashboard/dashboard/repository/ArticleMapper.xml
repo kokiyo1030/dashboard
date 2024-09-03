@@ -21,6 +21,11 @@
 
     <select id="findAll" resultMap="articleDto">
         select * from articles
+        <where>
+            <if test="title != null">
+                and title like concat('%', #{title}, '%')
+            </if>
+        </where>
     </select>
 
     <update id="update">

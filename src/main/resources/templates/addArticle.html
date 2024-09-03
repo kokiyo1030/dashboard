@@ -18,13 +18,13 @@
     </div>
 
     <form action="article.html" th:action th:object="${article}" method="post">
-        <div>
-            <label for="title" th:text="#{label.article.title}">제목</label>
+        <div class="form-floating mb-3">
             <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="제목을 입력하세요">
+            <label for="floatingInput" th:text="#{label.article.title}">제목</label>
         </div>
-        <div>
-            <label for="content" th:text="#{label.article.content}">내용</label>
+        <div class="form-floating mb-3">
             <input type="text" id="content" th:field="*{content}" class="form-control" placeholder="내용을 입력하세요">
+            <label for="floatingInput" th:text="#{label.article.content}">내용</label>
         </div>
 
         <hr class="my-4">

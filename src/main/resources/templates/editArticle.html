@@ -18,17 +18,17 @@
     </div>
 
     <form action="article.html" th:action th:object="${article}" method="post">
-        <div>
-            <label for="id" th:text="#{label.article.articleNo}">#</label>
+        <div class="form-floating mb-3">
             <input type="text" id="id" th:field="*{articleNo}" class="form-control" value="1" th:value="*{articleNo}" readonly>
+            <label for="floatingInput" th:text="#{label.article.articleNo}">#</label>
         </div>
-        <div>
-            <label for="title" th:text="#{label.article.title}">제목</label>
+        <div class="form-floating mb-3">
             <input type="text" id="title" th:field="*{title}" class="form-control" value="상품A" th:value="*{title}">
+            <label for="floatingInput" th:text="#{label.article.title}">제목</label>
         </div>
-        <div>
-            <label for="content" th:text="#{label.article.content}">내용</label>
+        <div class="form-floating mb-3">
             <input type="text" id="content" th:field="*{content}" class="form-control" value="10000" th:value="*{content}">
+            <label for="floatingInput" th:text="#{label.article.content}">내용</label>
         </div>
 
         <hr class="my-4">
