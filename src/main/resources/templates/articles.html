@@ -8,7 +8,7 @@
 
 <div class="container" style="max-width: 600px">
     <div class="py-5 text-center">
-        <h2>게시판</h2>
+        <h2 th:text="#{label.articles}">게시판</h2>
     </div>
 
     <form th:object="${articlesSearch}" method="get" class="form-inline">
@@ -28,6 +28,7 @@
                     <button class="btn btn-primary float-end"
                             onclick="location.href='addForm.html'"
                             th:onclick="|location.href='@{/add}'|"
+                            th:text="#{button.add}"
                             type="button">글 작성
                     </button>
                 </div>
@@ -41,11 +42,11 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>조회수</th>
-                <th>추천수</th>
-                <th>날짜</th>
+                <th th:text="#{label.article.articleNo}">번호</th>
+                <th th:text="#{label.article.title}">제목</th>
+                <th th:text="#{label.article.lookCount}">조회수</th>
+                <th th:text="#{label.article.recCount}">추천수</th>
+                <th th:text="#{label.article.regDate}">날짜</th>
             </tr>
             </thead>
             <tbody>

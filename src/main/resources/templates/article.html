@@ -14,30 +14,30 @@
 <div class="container">
 
     <div class="py-5 text-center">
-        <h2>상세 게시판</h2>
+        <h2 th:text="#{label.article}">상세 게시판</h2>
     </div>
 
     <!-- 추가 -->
 <!--    <h2 th:if="${param.status}" th:text="'저장 완료'"></h2>-->
 
     <div>
-        <label for="articleNo">#</label>
+        <label for="articleNo" th:text="#{label.article.articleNo}">#</label>
         <input type="text" id="articleNo" class="form-control" value="1" th:value="${article.articleNo}" readonly>
     </div>
     <div>
-        <label for="title">제목</label>
+        <label for="title" th:text="#{label.article.title}">제목</label>
         <input type="text" id="title" class="form-control" value="hi" th:value="${article.title}" readonly>
     </div>
     <div>
-        <label for="content">내용</label>
+        <label for="content" th:text="#{label.article.content}">내용</label>
         <input type="text" id="content" class="form-control" value="hello" th:value="${article.content}" readonly>
     </div>
     <div>
-        <label for="lookCount">조회수</label>
+        <label for="lookCount" th:text="#{label.article.lookCount}">조회수</label>
         <input type="text" id="lookCount" class="form-control" value="0" th:value="${article.lookCount}" readonly>
     </div>
     <div>
-        <label for="datetime">날짜</label>
+        <label for="datetime" th:text="#{label.article.regDate}">날짜</label>
         <input type="text" id="datetime" class="form-control" value="xxx" th:value="${#dates.format(article.createdAt, 'yyyy-MM-dd HH:mm')}" readonly>
     </div>
     <hr class="my-4">
@@ -47,13 +47,15 @@
             <button class="w-100 btn btn-primary btn-lg"
                     onclick="location.href='editArticle.html'"
                     th:onclick="|location.replace('@{/{articleNo}/edit(articleNo=${article.articleNo})}')|"
-                    type="button">상품 수정</button>
+                    th:text="#{button.edit}"
+                    type="button">글 수정</button>
         </div>
 
         <div class="col">
             <button class="w-100 btn btn-secondary btn-lg"
                     onclick="location.href='articles.html'"
                     th:onclick="|location.href='@{/}'|"
+                    th:text="#{page.backArticles}"
                     type="button">목록으로</button>
 
         </div>
@@ -61,6 +63,7 @@
             <button class="w-100 btn btn-secondary btn-lg"
                     onclick="location.href='articles.html'"
                     th:onclick="|location.replace('@{/delete(articleNo=${article.articleNo})}')|"
+                    th:text="#{page.deleteArticle}"
                     type="button">삭제하기</button>
         </div>
     </div>
